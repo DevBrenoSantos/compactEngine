@@ -1,5 +1,15 @@
 # Compressor de Imagens com Algoritmo de Huffman
 
+<div styler="display: inline_block" aling="center">
+    <img align="center" src="https://img.shields.io/github/repo-size/DevBrenoSantos/compactEngine?style=for-the-badge">
+    <img align="center" src="https://img.shields.io/github/languages/count/DevBrenoSantos/compactEngine?style=for-the-badge">
+    <img align="center" src="https://img.shields.io/github/forks/DevBrenoSantos/compactEngine?style=for-the-badge">
+</div>
+
+![GitHub repo size](https://img.shields.io/github/repo-size/DevBrenoSantos/compactEngine?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/DevBrenoSantos/compactEngine?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/DevBrenoSantos/compactEngine?style=for-the-badge)
+
 Este projeto é uma implementação de um compressor e descompressor de imagens que utiliza o algoritmo de Huffman para compactar imagens nos formatos BMP ou PNG, aplicando compressão nos três canais de cor (R, G, B). O programa também é capaz de descompactar a imagem a partir de um arquivo de texto comprimido, restaurando-a para o formato original.
 
 ## Tabela de Conteúdos
