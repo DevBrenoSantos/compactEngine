@@ -1,18 +1,14 @@
 # Compressor de Imagens com Algoritmo de Huffman
 
-<div styler="display: inline_block" aling="center">
+<div styler="display: inline_block" align="center">
     <img align="center" src="https://img.shields.io/github/repo-size/DevBrenoSantos/compactEngine?style=for-the-badge">
     <img align="center" src="https://img.shields.io/github/languages/count/DevBrenoSantos/compactEngine?style=for-the-badge">
     <img align="center" src="https://img.shields.io/github/forks/DevBrenoSantos/compactEngine?style=for-the-badge">
-</div>
-
-![GitHub repo size](https://img.shields.io/github/repo-size/DevBrenoSantos/compactEngine?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/DevBrenoSantos/compactEngine?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/DevBrenoSantos/compactEngine?style=for-the-badge)
+</div> </br>
 
 Este projeto é uma implementação de um compressor e descompressor de imagens que utiliza o algoritmo de Huffman para compactar imagens nos formatos BMP ou PNG, aplicando compressão nos três canais de cor (R, G, B). O programa também é capaz de descompactar a imagem a partir de um arquivo de texto comprimido, restaurando-a para o formato original.
 
-## Tabela de Conteúdos
+## 📜 Tabela de Conteúdos
 
 - [Introdução](/README.md#introdução)
 - [Funcionamento](/README.md#funcionamento)
@@ -27,12 +23,12 @@ Este projeto é uma implementação de um compressor e descompressor de imagens 
 
 Este projeto tem como objetivo explorar a aplicação do algoritmo de Huffman para compressão de imagens, uma técnica eficaz que reduz o espaço de armazenamento ao representar os valores RGB de cada pixel com códigos binários de tamanhos variáveis. Com este programa, você pode comprimir imagens e descomprimir o arquivo para restaurar a imagem original.
 
-## Funcionamento
+## 🔧  Funcionamento
 
 O projeto consiste em duas fases principais:
 
 1. **Compressão:** A imagem é analisada e, para cada canal de cor (R, G e B), calcula-se a frequência de cada valor (0-255). Essas frequências são usadas para criar três árvores de Huffman independentes. O arquivo de saída inclui as dimensões da imagem, as frequências de cada canal e os dados comprimidos em uma sequência de bits.
-2. **DEscompressão:** O programa lê o arquivo compactado, reconstrói as árvores de Huffman com base nas frequências e decodifica os dados binários para restaurar a imagem original.
+2. **Descompressão:** O programa lê o arquivo compactado, reconstrói as árvores de Huffman com base nas frequências e decodifica os dados binários para restaurar a imagem original.
 
 ## Estrutura do Projeto
 
@@ -46,11 +42,11 @@ O projeto consiste em duas fases principais:
 
 ## Uso
 
-### Compressão
+### 📥 Compressão
 
 Execute o método ```compressImage``` da classe ```Compressor``` passando a imagem que deseja compactar. O programa gerará um arquivo de texto com as dimensões, frequências e dados comprimidos da imagem.
 
-### Descompressão
+### 📤 Descompressão
 
 Execute o método ```decompressImage``` da classe ```Decompressor```, passando o arquivo comprimido gerado anteriormente. A imagem restaurada será salva no local especificado.
 
@@ -62,6 +58,6 @@ Execute o método ```decompressImage``` da classe ```Decompressor```, passando o
 - A eficiência da compressão depende da redundância de cores na imagem.
 - Imagens com muita variação de cor podem não ser significativamente comprimidas.
   
-## Licença
+## 🔺 Licença
 
 Este projeto é licenciado sob a [MIT License](/LICENSE.txt).
