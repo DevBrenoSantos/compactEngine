@@ -6,6 +6,7 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
     HuffmanNode left;
     HuffmanNode right;
 
+    // Construtor
     public HuffmanNode(int value, int frequency) {
         this.value = value;
         this.frequency = frequency;

@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 public class Decompressor {
     public void decompressImage(String inputFilePath, String outputImagePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath))) {
+            // Leitura das dimensões da imagem
             String[] dimensions = reader.readLine().split(" ");
             int width = Integer.parseInt(dimensions[0]);
             int height = Integer.parseInt(dimensions[1]);
@@ -24,6 +25,7 @@ public class Decompressor {
             reader.readLine(); // "BLUE"
             Map<Integer, Integer> blueFrequency = parseFrequencies(reader.readLine());
 
+            // Construção das árvores de Huffman
             HuffmanTree redTree = new HuffmanTree(redFrequency);
             HuffmanTree greenTree = new HuffmanTree(greenFrequency);
             HuffmanTree blueTree = new HuffmanTree(blueFrequency);
@@ -41,6 +43,7 @@ public class Decompressor {
                 }
             }
 
+            // Salva a imagem descomprimida
             ImageIO.write(image, "png", new File(outputImagePath));
 
         } catch (Exception e) {
@@ -50,12 +53,14 @@ public class Decompressor {
 
     // Implementação da função parseFrequencies
     private Map<Integer, Integer> parseFrequencies(String frequencyData) {
+        // Mapeia os valores para suas respectivas frequências
         Map<Integer, Integer> frequencies = new HashMap<>();
         
         // Remove caracteres indesejados, se houver
         frequencyData = frequencyData.replaceAll("[{} ]", "");
         String[] pairs = frequencyData.split(",");
 
+        // Preenche o mapa
         for (String pair : pairs) {
             String[] keyValue = pair.split("=");
             int value = Integer.parseInt(keyValue[0]);
@@ -68,9 +73,11 @@ public class Decompressor {
 
     // Implementação da função decodeColor
     private int decodeColor(BufferedReader reader, HuffmanTree tree) throws IOException {
+        // Navega na árvore de Huffman até encontrar uma folha
         HuffmanNode currentNode = tree.getRoot();
         int bit;
 
+        // Enquanto não chegar a uma folha
         while (currentNode.left != null && currentNode.right != null) {
             bit = reader.read(); // Lê o próximo bit
 

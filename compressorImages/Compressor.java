@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 public class Compressor {
     public void compressImage(String inputImagePath, String outputFilePath) {
+        // Leitura da imagem
         try {
             BufferedImage image = ImageIO.read(new File(inputImagePath));
 
@@ -17,6 +18,7 @@ public class Compressor {
             Map<Integer, Integer> greenFrequency = new HashMap<>();
             Map<Integer, Integer> blueFrequency = new HashMap<>();
 
+            // Dimensões da imagem
             int width = image.getWidth();
             int height = image.getHeight();
 
@@ -28,6 +30,7 @@ public class Compressor {
                     int green = (rgb >> 8) & 0xff;
                     int blue = rgb & 0xff;
 
+                    // Atualização das frequências
                     redFrequency.put(red, redFrequency.getOrDefault(red, 0) + 1);
                     greenFrequency.put(green, greenFrequency.getOrDefault(green, 0) + 1);
                     blueFrequency.put(blue, blueFrequency.getOrDefault(blue, 0) + 1);
@@ -56,6 +59,7 @@ public class Compressor {
                     int green = (rgb >> 8) & 0xff;
                     int blue = rgb & 0xff;
 
+                    // Escrita dos códigos binários
                     writer.write(redTree.getCodes().get(red));
                     writer.write(greenTree.getCodes().get(green));
                     writer.write(blueTree.getCodes().get(blue));

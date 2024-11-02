@@ -10,11 +10,13 @@ public class HuffmanTree {
 
     // Construção da árvore de Huffman
     public HuffmanTree(Map<Integer, Integer> frequencies) {
+        // Fila de prioridade para armazenar os nós da árvore
         PriorityQueue<HuffmanNode> queue = new PriorityQueue<>();
         for (Map.Entry<Integer, Integer> entry : frequencies.entrySet()) {
             queue.add(new HuffmanNode(entry.getKey(), entry.getValue()));
         }
 
+        // Construção da árvore
         while (queue.size() > 1) {
             HuffmanNode left = queue.poll();
             HuffmanNode right = queue.poll();
@@ -24,6 +26,7 @@ public class HuffmanTree {
             queue.add(parent);
         }
 
+        // Geração dos códigos binários
         root = queue.poll();
         generateCodes(root, "");
     }
@@ -38,6 +41,7 @@ public class HuffmanTree {
         generateCodes(node.right, code + "1");
     }
 
+    // Retorna os códigos binários
     public Map<Integer, String> getCodes() {
         return codes;
     }
