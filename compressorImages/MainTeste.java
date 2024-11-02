@@ -10,11 +10,9 @@ public class MainTeste {
         // Compressão
         Compressor compressor = new Compressor();
         compressor.compressImage(inputImagePath, compressedFilePath);
-        System.out.println("Imagem comprimida com sucesso!");
 
         // Descompressão
         Decompressor decompressor = new Decompressor();
         decompressor.decompressImage(compressedFilePath, outputImagePath);
-        System.out.println("Imagem descomprimida com sucesso!");
     }
 }

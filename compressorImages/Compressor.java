@@ -9,6 +9,9 @@ import javax.imageio.ImageIO;
 
 public class Compressor {
     public void compressImage(String inputImagePath, String outputFilePath) {
+        // Início da contagem do tempo de execução
+        long startTime = System.currentTimeMillis();
+
         // Leitura da imagem
         try {
             BufferedImage image = ImageIO.read(new File(inputImagePath));
@@ -66,9 +69,22 @@ public class Compressor {
                 }
             }
             writer.close();
-
+            System.out.println("\nImagem comprimida com sucesso!\n");
+            System.out.printf("""
+                    ===============================
+                    Informações da compressão:
+                    ===============================
+                    - Largura: %d pixels
+                    - Altura: %d pixels
+                    - Tamanho do arquivo comprimido: %d bytes
+                    ===============================\n
+                    """, width, height, new File(outputFilePath).length());
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Erro na compressão da imagem.");
         }
+        // Fim da contagem do tempo de execução
+        long endTime = System.currentTimeMillis();
+        System.out.println("Tempo de execução da compressão: " + (endTime - startTime) + "ms");
     }
 }

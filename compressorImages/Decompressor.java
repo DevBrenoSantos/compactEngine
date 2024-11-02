@@ -11,6 +11,10 @@ import java.awt.image.BufferedImage;
 
 public class Decompressor {
     public void decompressImage(String inputFilePath, String outputImagePath) {
+        // Início da contagem do tempo de execução
+        long startTime = System.currentTimeMillis();
+
+        // Leitura da imagem
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath))) {
             // Leitura das dimensões da imagem
             String[] dimensions = reader.readLine().split(" ");
@@ -45,10 +49,23 @@ public class Decompressor {
 
             // Salva a imagem descomprimida
             ImageIO.write(image, "png", new File(outputImagePath));
-
+            System.out.println("\nImagem descomprimida com sucesso.\n");
+            System.out.printf("""
+                    ===============================
+                    Informações da descompressão:
+                    ===============================
+                    - Largura: %d
+                    - Altura: %d
+                    - Caminho da imagem descomprimida:\n '%s'
+                    ===============================\n
+                    """, width, height, outputImagePath);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Erro ao descomprimir a imagem.");
         }
+        // Fim da contagem do tempo de execução
+        long endTime = System.currentTimeMillis();
+        System.out.println("Tempo de execução: " + (endTime - startTime) + " ms");
     }
 
     // Implementação da função parseFrequencies
