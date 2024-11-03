@@ -85,6 +85,6 @@ public class Compressor {
         }
         // Fim da contagem do tempo de execução
         long endTime = System.currentTimeMillis();
-        System.out.println("Tempo de execução da compressão: " + (endTime - startTime) + "ms");
+        System.out.println("Tempo de execução da compressão: " + (endTime - startTime) + "ms\n");
     }
 }

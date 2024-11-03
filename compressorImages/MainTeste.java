@@ -14,5 +14,26 @@ public class MainTeste {
         // Descompressão
         Decompressor decompressor = new Decompressor();
         decompressor.decompressImage(compressedFilePath, outputImagePath);
+
+        // Cálculo da entropia total
+        System.out.println("Entropia total da imagem original: " + EntropyCalculator.getTotalEntropy(inputImagePath));
+        System.out.println("Entropia total da imagem descomprimida: " + EntropyCalculator.getTotalEntropy(outputImagePath));
+
+        System.out.println("\n");
+        
+        // Cálculo da entropia média
+        System.out.println("Entropia média da imagem original: " + EntropyCalculator.getEntropyImageAverage(inputImagePath));
+        System.out.println("Entropia média da imagem descomprimida: " + EntropyCalculator.getEntropyImageAverage(outputImagePath));
+        
+        System.out.println("\n");
+
+        // Cálculo da entropia por canal
+        System.out.println("Entropia da imagem original por canal: \n");
+        EntropyCalculator.calculate(inputImagePath);
+
+        System.out.println("Entropia da imagem descomprimida por canal: \n");
+        EntropyCalculator.calculate(outputImagePath);
+
+
     }
 }

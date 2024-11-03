@@ -54,8 +54,8 @@ public class Decompressor {
                     ===============================
                     Informações da descompressão:
                     ===============================
-                    - Largura: %d
-                    - Altura: %d
+                    - Largura: %d pixels
+                    - Altura: %d pixels
                     - Caminho da imagem descomprimida:\n '%s'
                     ===============================\n
                     """, width, height, outputImagePath);
@@ -65,7 +65,7 @@ public class Decompressor {
         }
         // Fim da contagem do tempo de execução
         long endTime = System.currentTimeMillis();
-        System.out.println("Tempo de execução: " + (endTime - startTime) + " ms");
+        System.out.println("Tempo de execução da descompressão: " + (endTime - startTime) + " ms\n");
     }
 
     // Implementação da função parseFrequencies
