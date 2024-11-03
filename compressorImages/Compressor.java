@@ -79,12 +79,13 @@ public class Compressor {
                     - Tamanho do arquivo comprimido: %d bytes
                     ===============================\n
                     """, width, height, new File(outputFilePath).length());
+
+            // Fim da contagem do tempo de execução
+            long endTime = System.currentTimeMillis();
+            System.out.println("Tempo de execução da compressão: " + (endTime - startTime) + "ms\n");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Erro na compressão da imagem.");
         }
-        // Fim da contagem do tempo de execução
-        long endTime = System.currentTimeMillis();
-        System.out.println("Tempo de execução da compressão: " + (endTime - startTime) + "ms\n");
     }
 }
