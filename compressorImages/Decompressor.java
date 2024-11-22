@@ -49,17 +49,9 @@ public class Decompressor {
 
             // Salva a imagem descomprimida
             ImageIO.write(image, "png", new File(outputImagePath));
-            System.out.println("\nImagem descomprimida com sucesso.\n");
-            System.out.printf("""
-                    ===============================
-                    Informações da descompressão:
-                    ===============================
-                    - Largura: %d pixels
-                    - Altura: %d pixels
-                    - Caminho da imagem descomprimida:\n '%s'
-                    ===============================\n
-                    """, width, height, outputImagePath);
-
+           
+            String msg = String.format(" ===============================\n Informações da descompressão: \n=============================== \n- Largura: %d pixels \n- Altura: %d pixels \n- Caminho da imagem descomprimida:\n '%s'\n===============================\n ", width, height, outputImagePath);
+            OptionPaneExample.windowMsg(msg, null);
             // Fim da contagem do tempo de execução
             long endTime = System.currentTimeMillis();
             System.out.println("Tempo de execução da descompressão: " + (endTime - startTime) + " ms\n");

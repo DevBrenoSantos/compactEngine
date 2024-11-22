@@ -19,6 +19,22 @@ public class EntropyCalculator {
             e.printStackTrace();
         }
     }
+    
+
+    public static String calculate(String imagePath, boolean returnStr) {
+        try {
+            BufferedImage image = ImageIO.read(new File(imagePath));
+            System.out.println("Entropia do canal vermelho: " + calculateEntropy(image, "R"));
+            System.out.println("Entropia do canal verde: " + calculateEntropy(image, "G"));
+            System.out.println("Entropia do canal azul: " + calculateEntropy(image, "B"));   
+            System.out.println("\n");
+            String txt = "Entropia do canal vermelho: " + calculateEntropy(image, "R")+"\n"+"Entropia do canal verde: " + calculateEntropy(image, "G")+"\n"+"Entropia do canal azul: " + calculateEntropy(image, "B");
+            return txt; 
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 
     // Calcula a entropia de um canal específico da imagem
     private static double calculateEntropy(BufferedImage image, String channel) {
